@@ -49,4 +49,4 @@ def generate(context: json):
     context_with_response = [tokenizer.decode(sample_token_ids) for sample_token_ids in generated_token_ids]
     response = decode_context(context_with_response)[-1]
 
-    return {'response': response}
+    return response
