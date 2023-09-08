@@ -9,10 +9,10 @@ services:
         - "6060:6060"
 
     aiogram:
-      container_name: "aiogram_bot"
+      container_name: "gpt_aiogram_bot"
       build:
         context: aiogram
       ports:
-        - "8081:8081"
+        - "8082:8082"
       depends_on:
         - gpt_model
