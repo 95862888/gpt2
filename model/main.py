@@ -4,6 +4,7 @@ from huggingface_hub import login
 import torch
 from utils import encode_context, decode_context
 import config
+import json
 
 login(token=config.HF_TOKEN)
 
@@ -32,7 +33,9 @@ app = FastAPI()
 
 
 @app.post("/generate")
-def generate(context: list[str]) -> str:
+def generate(context: json) -> str:
+    context = json.load(context['context'])
+
     context = encode_context(context)
 
     # Use the pipeline to generate text from the given input text
