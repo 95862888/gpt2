@@ -1,7 +1,7 @@
 version: '3'
 services:
-    GPT_model:
-      container_name: "GPT_model"
+    gpt_model:
+      container_name: "gpt_model"
       user: root
       build:
         context:  ./model
@@ -15,4 +15,4 @@ services:
       ports:
         - "8081:8081"
       depends_on:
-        - model
+        - gpt_model
