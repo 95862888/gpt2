@@ -31,8 +31,8 @@ params = {
 app = FastAPI()
 
 
-@app.get("/generate")
-def generate(context: list[str]) -> dict[str, str]:
+@app.post("/generate")
+def generate(context: list[str]) -> str:
     context = encode_context(context)
 
     # Use the pipeline to generate text from the given input text
@@ -46,4 +46,4 @@ def generate(context: list[str]) -> dict[str, str]:
     context_with_response = [tokenizer.decode(sample_token_ids) for sample_token_ids in generated_token_ids]
     response = decode_context(context_with_response)[-1]
 
-    return {'response': response}
+    return response
