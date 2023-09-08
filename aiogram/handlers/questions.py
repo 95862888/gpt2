@@ -19,7 +19,7 @@ async def message_handler(message: types.Message):
         contexts[chat_id] = [message.text]
     else:
         contexts[chat_id].append(message.text)
-        contexts[chat_id] = contexts[chat_id][:3]
+        contexts[chat_id] = contexts[chat_id][-3:]
 
     model_response = requests.post(
         config.MODEL_API,
@@ -30,9 +30,6 @@ async def message_handler(message: types.Message):
 
     response = model_response
 
-    print(type(response))
-
     contexts[chat_id].append(response)
-    contexts[chat_id] = contexts[chat_id][:3]
 
     await message.answer(response)
