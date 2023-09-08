@@ -23,9 +23,7 @@ async def message_handler(message: types.Message):
 
     model_response = requests.post(
         config.MODEL_API,
-        json={
-            'context': json.dumps(contexts[chat_id])
-        }
+        json=json.dumps(contexts[chat_id])
     )
 
     response = str(model_response)
