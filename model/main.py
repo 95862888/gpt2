@@ -34,10 +34,7 @@ app = FastAPI()
 
 @app.post("/generate")
 def generate(context: list[str]):
-    context = encode_context(context)
-
-    # Use the pipeline to generate text from the given input text
-    inputs = tokenizer(context, return_tensors='pt').to(device)
+    inputs = tokenizer(encode_context(context), return_tensors='pt').to(device)
 
     generated_token_ids = model.generate(
         **inputs,

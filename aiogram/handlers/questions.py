@@ -26,8 +26,8 @@ async def message_handler(message: types.Message):
         json=contexts[chat_id]
     )
 
-    model_response = model_response.text.strip('\"')
+    response = model_response.text.strip('\"')
 
-    contexts[chat_id].append(model_response)
+    contexts[chat_id].append(response)
 
-    await message.answer(model_response)
+    await message.answer(response)
