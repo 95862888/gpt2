@@ -33,7 +33,7 @@ app = FastAPI()
 
 
 @app.post("/generate")
-def generate(context: json) -> json:
+def generate(context: json):
     context = json.load(context['context'])
 
     context = encode_context(context)
@@ -49,4 +49,4 @@ def generate(context: json) -> json:
     context_with_response = [tokenizer.decode(sample_token_ids) for sample_token_ids in generated_token_ids]
     response = decode_context(context_with_response)[-1]
 
-    return json.dumps({'response': response})
+    return {'response': response}
