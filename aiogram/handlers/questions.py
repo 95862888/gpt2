@@ -26,7 +26,7 @@ async def message_handler(message: types.Message):
         json={
             'context': json.dumps(contexts[chat_id])
         }
-    ).json()
+    )
 
     response = str(model_response)
 
