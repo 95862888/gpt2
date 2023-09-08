@@ -1,0 +1,6 @@
+*.log
+aiogram/.env
+model/.env
+.env
+.idea
+venv/*

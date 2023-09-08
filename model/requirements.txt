@@ -1,0 +1,7 @@
+fastapi==0.63.0
+uvicorn==0.13.4
+envparse==0.2.0
+torch==2.0.1
+huggingface==0.0.1
+transformers==4.33.1
+config==0.5.1

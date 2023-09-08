@@ -1,0 +1,18 @@
+version: '3'
+services:
+    GPT_model:
+      container_name: "GPT_model"
+      user: root
+      build:
+        context:  ./model
+      ports:
+        - "6060:6060"
+
+    aiogram:
+      container_name: "aiogram_bot"
+      build:
+        context: aiogram
+      ports:
+        - "8081:8081"
+      depends_on:
+        - model
