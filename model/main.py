@@ -33,9 +33,7 @@ app = FastAPI()
 
 
 @app.post("/generate")
-def generate(context: json):
-    context = json.load(context['context'])
-
+def generate(context: list[str]):
     context = encode_context(context)
 
     # Use the pipeline to generate text from the given input text
